@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About page {% endblock %}
+
+{% block body %}
+  <main class="main">
+{% if eventsTitle %}
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>{{ eventsTitle.heading }}</h1>
+              <p class="mb-0">{{ eventsTitle.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">{{ eventsTitle.link1 }}</a></li>
+            <li class="current">{{ eventsTitle.link2 }}</li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+{% endif %}
+    <!-- Events Section -->
+    <section id="events" class="events section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+            {% for card in cards %}
+            	<div class="col-md-6 d-flex align-items-stretch">
+            <div class="card">
+              <div class="card-img">
+                <img src="/media/{{ card.image }}" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a href="">{{ card.heading}}</a></h5>
+                <p class="fst-italic text-center">{{ card.time}}</p>
+                <p class="card-text">{{ card.description }}</p>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+
+        </div>
+
+      </div>
+
+    </section><!-- /Events Section -->
+
+  </main>
+{% endblock %}

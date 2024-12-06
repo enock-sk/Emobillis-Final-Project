@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About page {% endblock %}
+
+{% block body %}
+
+  <main class="main">
+{% if pageTitles %}
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>{{ pageTitles.heading }}</h1>
+              <p class="mb-0">{{ pageTitles.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">{{ pageTitles.link1 }}</a></li>
+            <li class="current">{{ pageTitles.link2 }}</li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+{% endif %} 
+    
+
+    <!-- Trainers Section -->
+    <section id="trainers" class="section trainers">
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          
+            {% for trainer in trainers %}
+            	<div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-img">
+              <img src="/media/{{ trainer.image }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="#"><i class="{{ trainer.twitter_link}}"></i></a>
+                <a href="#"><i class="{{ trainer.facebook_link}}"></i></a>
+                <a href="#"><i class="{{ trainer.instagram_link}}"></i></a>
+                <a href="#"><i class="{{ trainer.linkedin_link}}"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>{{ trainer.heading}}</h4>
+              <span>{{ trainer.span_heading}}</span>
+              <p>{{ trainer.description}}</p>
+            </div>
+          </div>
+            {% endfor %}
+            
+        </div>
+
+      </div>
+
+    </section><!-- /Trainers Section -->
+
+  </main>
+
+{% endblock %}

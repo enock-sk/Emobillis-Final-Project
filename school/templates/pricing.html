@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About page {% endblock %}
+
+{% block body %}
+  <main class="main">
+
+    <!-- Page Title -->
+  {% if pricingtitle %}
+  	
+   
+  	 <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>{{ pricingtitle.heading }}</h1>
+              <p class="mb-0">{{ pricingtitle.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">{{ pricingtitle.link1 }}</a></li>
+            <li class="current">{{ pricingtitle.link2 }}</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+{% endif %}
+   
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+
+      <div class="container">
+
+        <div class="row gy-3">
+{#........................................................#}
+            {% for pricings in pricings %}
+            	<div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-item">
+              <h3>Free</h3>
+              <h4><sup>{{pricings.currency}}</sup>{{ pricings.amount }}<span> {{pricings.month}}</span></h4>
+              <ul>
+                <li>{{ pricings.list1 }}</li>
+                <li>{{ pricings.list2 }}</li>
+                <li>{{ pricings.list3 }}</li>
+                <li class="na">{{ pricings.list4 }}</li>
+                <li class="na">{{ pricings.list5 }}</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">{{ pricings.btn }}</a>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+            
+          <!-- End Pricing Item -->
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Pricing Section -->
+
+  </main>
+{% endblock %}
